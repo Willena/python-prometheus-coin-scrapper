@@ -1,8 +1,8 @@
-# prometheus coin360 scraper : A simple metric provider for prometheus
+# prometheus coin scraper : A simple metric provider for prometheus
 
-This provide a set of metric for all cryptocurencies listed on coin360.com and coinmarket caps
+This provide a set of metric for all cryptocurencies listed on https://coin360.com/ and http://coinmarketcap.com/
 
-A lot of metrics are generated from this scrapper ~10000 values today (27/12/2018)
+A lot of values are generated from this scrapper ~10000 values today (27/12/2018)
 
 ## How to use
 
