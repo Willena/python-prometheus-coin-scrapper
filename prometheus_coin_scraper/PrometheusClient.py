@@ -17,6 +17,10 @@ class PrometheusClient:
                                       ['symbol', 'name', 'source'])
     COIN_CHANGES_VALUES = Gauge('coin_scrapper_coin_changes', "changes over time of multiple coins",
                                 ['symbol', 'name', 'source', 'interval'])
+    COIN_MARKET_CAP = Gauge('coin_scrapper_coin_market_cap', "Market capitalization of a coin",
+                            ['symbol', 'name', 'source'])
+    COIN_24HOUR_VOLUME = Gauge('coin_scrapper_coin_24h_volume', "24h exchanged volume",
+                               ['symbol', 'name', 'source'])
 
     manager: Manager = None
 
@@ -50,6 +54,10 @@ class PrometheusClient:
             for coin in coinlist:
                 self.COIN_USD_VALUES.labels(coin.symbol.upper(), coin.name.lower(), coin.source).set(coin.valueUSD)
                 self.COIN_BTC_VALUES.labels(coin.symbol.upper(), coin.name.lower(), coin.source).set(coin.valueBTC)
+                self.COIN_MARKET_CAP.labels(coin.symbol.upper(), coin.name.lower(), coin.source).set(
+                    coin.market_cap_usd)
+                self.COIN_24HOUR_VOLUME.labels(coin.symbol.upper(), coin.name.lower(), coin.source).set(
+                    coin.volume_24h_usd)
                 self.COIN_LAST_PLATFORM_UPDATE.labels(coin.symbol.upper(), coin.name.lower(), coin.source).set(
                     coin.lastUpdate)
                 for it, change in coin.changes.items():

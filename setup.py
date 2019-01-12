@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='prometheus_coin_scrapper',  # Required
-    version='0.0.1',  # Required
+    version='0.0.2',  # Required
     description='A simple prometheus scrapper that provide many information about cryptocurrencies values in "realtime"',  # Optional
     long_description=long_description,  # Optional
     long_description_content_type='text/markdown',  # Optional (see note above)
